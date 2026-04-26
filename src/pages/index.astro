@@ -88,6 +88,25 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 	.page-hero__actions {
 		margin-inline: auto;
 	}
+
+	.hero-video {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+
+		pointer-events: none;
+	}
+
+	.hero-video::-webkit-media-controls {
+		display: none !important;
+	}
+
+	.hero-video::-webkit-media-controls-start-playback-button {
+		display: none !important;
+		-webkit-appearance: none;
+	}
 </style>
 
 <script is:inline>
