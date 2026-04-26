@@ -11,7 +11,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 				loop
 				playsinline
 				preload="auto"
-				webkit-playsinline
+				poster="/img/hero.jpg"
 				class="hero-video"
 			>
 				<source src="/img/hero.mp4" type="video/mp4" />
@@ -111,11 +111,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <script is:inline>
   const video = document.querySelector('.hero-video');
+
   if (video) {
+    video.muted = true;
+
     video.play().catch(() => {
-      document.addEventListener('touchstart', () => {
+      setTimeout(() => {
         video.play();
-      }, { once: true });
+      }, 200);
     });
   }
 </script>
