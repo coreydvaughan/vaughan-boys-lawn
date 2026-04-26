@@ -5,7 +5,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <BaseLayout>
 	<section class="page-hero">
 		<div class="page-hero__video" aria-hidden="true">
-			<video autoplay muted loop playsinline preload="metadata">
+			<video autoplay muted loop playsinline preload="auto">
 				<source src="/img/hero.mp4" type="video/mp4" />
 			</video>
 		</div>
@@ -43,6 +43,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		pointer-events: none;
 	}
 
 	.page-hero__scrim {
