@@ -3,122 +3,95 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-	<section class="page-hero">
-		<div class="page-hero__video" aria-hidden="true">
-			<video
-				autoplay
-				muted
-				loop
-				playsinline
-				preload="auto"
-				poster="/img/hero.jpg"
-				class="hero-video"
-			>
-				<source src="/img/hero.mp4" type="video/mp4" />
-			</video>
-		</div>
-		<div class="page-hero__scrim" aria-hidden="true"></div>
-		<div class="page-hero__inner">
-			<h1>Vaughan Boys Lawn Maintenance</h1>
-			<p class="page-hero__tagline">Reliable Lawn Care in Your Area</p>
-			<div class="btn-row page-hero__actions">
-				<a class="btn btn--primary" href="tel:+15555550100">Call Now</a>
-				<a class="btn btn--ghost" href="#contact">Get a Quote</a>
-			</div>
-		</div>
-	</section>
+  <section class="page-hero">
+    <div class="page-hero__video" aria-hidden="true">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        class="hero-video"
+      >
+        <source src="/img/hero.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <div class="page-hero__scrim" aria-hidden="true"></div>
+
+    <div class="page-hero__inner">
+      <h1>Vaughan Boys Lawn Maintenance</h1>
+      <p class="page-hero__tagline">Reliable Lawn Care in Your Area</p>
+
+      <div class="btn-row page-hero__actions">
+        <a class="btn btn--primary" href="tel:+15555550100">Call Now</a>
+        <a class="btn btn--ghost" href="#contact">Get a Quote</a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
-	.page-hero {
-		position: relative;
-		min-height: calc(100dvh - var(--header-offset));
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 1rem 1.25rem 1.5rem;
-		text-align: center;
-		overflow: hidden;
-	}
-
-	.page-hero__video {
-		position: absolute;
-		inset: 0;
-		z-index: 0;
-	}
-
-	.page-hero__video video {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		pointer-events: none;
-	}
-
-	.page-hero__scrim {
-		position: absolute;
-		inset: 0;
-		z-index: 1;
-		background: rgba(0, 0, 0, 0.5);
-		pointer-events: none;
-	}
-
-	.page-hero__inner {
-		position: relative;
-		z-index: 2;
-		width: 100%;
-		max-width: 22rem;
-		margin-inline: auto;
-	}
-
-	.page-hero h1 {
-		margin: 0 0 0.5rem;
-		font-size: clamp(1.5rem, 5vw + 0.75rem, 2rem);
-		font-weight: 700;
-		line-height: 1.2;
-		text-wrap: balance;
-	}
-
-	.page-hero__tagline {
-		margin: 0 0 1.25rem;
-		font-size: 1rem;
-		line-height: 1.45;
-		color: rgba(255, 255, 255, 0.88);
-	}
-
-	.page-hero__actions {
-		margin-inline: auto;
-	}
-
-	.hero-video {
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-
-		pointer-events: none;
-	}
-
-	.hero-video::-webkit-media-controls {
-		display: none !important;
-	}
-
-	.hero-video::-webkit-media-controls-start-playback-button {
-		display: none !important;
-		-webkit-appearance: none;
-	}
-</style>
-
-<script is:inline>
-  const video = document.querySelector('.hero-video');
-
-  if (video) {
-    video.muted = true;
-
-    video.play().catch(() => {
-      setTimeout(() => {
-        video.play();
-      }, 200);
-    });
+  .page-hero {
+    position: relative;
+    min-height: calc(100dvh - var(--header-offset));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.25rem 1.5rem;
+    text-align: center;
+    overflow: hidden;
   }
-</script>
+
+  .page-hero__video {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .page-hero__video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  .page-hero__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+  }
+
+  .page-hero__inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+
+  .page-hero h1 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.5rem, 5vw + 0.75rem, 2rem);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .page-hero__tagline {
+    margin: 0 0 1.25rem;
+    font-size: 1rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+</style>
