@@ -33,7 +33,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </div>
   </section>
 
-  <section id="services" class="section">
+  <section id="services" class="section reveal">
     <div class="container section__grid">
       <div class="section__content">
         <h2 class="animate-in">Our Services</h2>
@@ -55,7 +55,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </div>
   </section>
 
-  <section id="about" class="section section--reverse">
+  <section id="about" class="section section--reverse reveal">
     <div class="container section__grid">
       <div class="section__content">
         <h2 class="animate-in">About Us</h2>
@@ -76,7 +76,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </div>
   </section>
 
-  <section id="contact" class="section section--contact">
+  <section id="contact" class="section section--contact reveal">
     <div class="container section__grid">
       <div class="section__content">
         <h2 class="animate-in">Get a Quote</h2>
@@ -113,7 +113,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <style>
   .page-hero {
     position: relative;
-    min-height: calc(100dvh - var(--header-offset));
+    min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
