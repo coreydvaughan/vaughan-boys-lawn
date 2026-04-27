@@ -56,6 +56,18 @@ a[href^="tel"]:hover {
 
 header {
 	transition: transform 0.6s ease, opacity 0.6s ease;
+	background: transparent;
+}
+
+.header-logo img {
+	height: 64px;
+	width: auto;
+}
+
+@media (min-width: 768px) {
+	.header-logo img {
+		height: 80px;
+	}
 }
 
 .header--hidden {
@@ -560,7 +572,7 @@ main {
 .modal__overlay {
 	position: absolute;
 	inset: 0;
-	background: rgba(0, 0, 0, 0.7);
+	background: rgba(0, 0, 0, 0.4);
 }
 
 .modal__content {
@@ -570,10 +582,26 @@ main {
 	max-width: 400px;
 	max-height: min(90dvh, 100%);
 	overflow: auto;
-	background: #111;
+	background: rgba(0, 0, 0, 0.55);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 12px;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 	padding: 1.5rem;
-	border-radius: 10px;
 	color: #fff;
+}
+
+.modal__content input,
+.modal__content textarea {
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	color: #fff;
+}
+
+.modal__content input::placeholder,
+.modal__content textarea::placeholder {
+	color: rgba(255, 255, 255, 0.6);
 }
 
 .modal__content h2 {
@@ -628,10 +656,33 @@ main {
 	margin: 0 auto;
 }
 
+.footer__brand {
+	text-align: center;
+	margin-bottom: 1.25rem;
+}
+
 .footer__brand img {
-	height: 40px;
-	width: auto;
-	margin-bottom: 0.5rem;
+	display: block;
+	margin: 0 auto 0.75rem;
+	width: 100%;
+	max-width: 280px;
+	height: auto;
+}
+
+@media (min-width: 768px) {
+	.footer__brand img {
+		max-width: 360px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.footer__brand img {
+		max-width: 420px;
+	}
+}
+
+.footer__contact {
+	text-align: left;
 }
 
 .footer__contact p {

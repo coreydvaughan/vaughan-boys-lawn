@@ -45,15 +45,11 @@
 		padding: 14px 16px;
 		position: relative;
 		z-index: 2;
-		background: rgba(0, 0, 0, 0.6);
+		background: rgba(0, 0, 0, 0.5);
 		backdrop-filter: blur(8px);
 		-webkit-backdrop-filter: blur(8px);
-	}
-
-	.header-logo img {
-		height: 48px;
-		width: auto;
-		display: block;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+		transition: background 0.3s ease;
 	}
 
 	.nav {
@@ -153,10 +149,6 @@
 
 		.menu-toggle {
 			display: none;
-		}
-
-		.header-logo img {
-			height: 60px;
 		}
 	}
 </style>
