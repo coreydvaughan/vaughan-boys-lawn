@@ -21,14 +21,90 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="page-hero__scrim" aria-hidden="true"></div>
 
     <div class="page-hero__inner">
-      <h1>Vaughan Boys Outdoor Company</h1>
-      <p class="page-hero__tagline">
+      <h1 class="hero-animate hero-animate--1">Vaughan Boys Outdoor Company</h1>
+      <p class="page-hero__tagline hero-animate hero-animate--2">
         Young, driven, and serious about doing it right—reliable lawn care you can count on.
       </p>
 
-      <div class="btn-row page-hero__actions">
-        <a class="btn btn--primary" href="tel:+15555550100">Call Now</a>
-        <a class="btn btn--ghost" href="#contact">Get a Quote</a>
+      <div class="btn-row page-hero__actions hero-animate hero-animate--3">
+        <a class="btn btn--primary" href="tel:+12147272404">Call for a Quick Quote</a>
+        <a class="btn btn--ghost" href="#" data-contact-open>Get a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section">
+    <div class="container section__grid">
+      <div class="section__content">
+        <h2 class="animate-in">Our Services</h2>
+        <p>
+          We provide reliable lawn care to keep your yard clean, consistent, and taken care of.
+        </p>
+
+        <a href="/services" class="btn btn--primary">View All Services</a>
+      </div>
+
+      <div class="section__media">
+        <ul>
+          <li>Lawn Mowing</li>
+          <li>Edging</li>
+          <li>Blowing</li>
+          <li>Basic Yard Cleanup</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section section--reverse">
+    <div class="container section__grid">
+      <div class="section__content">
+        <h2 class="animate-in">About Us</h2>
+        <p>
+          Bruce and Cash Vaughan are two hardworking young entrepreneurs based in Lawton, Oklahoma.
+        </p>
+
+        <p>
+          They take pride in showing up, working hard, and doing the job right—every time.
+        </p>
+
+        <a href="/about" class="btn btn--ghost">Learn More About Us</a>
+      </div>
+
+      <div class="section__media">
+        <img src="/img/Boys.png" alt="Vaughan Boys Outdoor Company owners" class="about-image" />
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section section--contact">
+    <div class="container section__grid">
+      <div class="section__content">
+        <h2 class="animate-in">Get a Quote</h2>
+        <p>
+          Serving Lawton & surrounding areas. Fill out the form or email us directly at
+          <a href="mailto:vaughanoutdoorcompany@gmail.com">vaughanoutdoorcompany@gmail.com</a>.
+        </p>
+      </div>
+
+      <div class="section__media">
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary">Request a Quote</button>
+        </form>
       </div>
     </div>
   </section>
