@@ -1,7 +1,7 @@
 <header class="header">
 	<div class="header-inner">
-		<a href="/" class="logo">
-			<img src="/img/logo.png" alt="Vaughan Boys Lawn Maintenance" width="160" height="48" />
+		<a href="/" class="logo header-logo">
+			<img src="/img/logo.png" alt="Vaughan Boys Lawn Maintenance" width="180" height="60" />
 		</a>
 
 		<nav class="nav desktop-nav" aria-label="Primary">
@@ -31,12 +31,10 @@
 		left: 0;
 		width: 100%;
 		z-index: 1000;
-		transition: background 0.25s ease;
-		background: transparent;
 	}
 
-	.header.scrolled {
-		background: #000;
+	.header.scrolled .header-inner {
+		background: rgba(0, 0, 0, 0.88);
 		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 	}
 
@@ -47,10 +45,13 @@
 		padding: 14px 16px;
 		position: relative;
 		z-index: 2;
+		background: rgba(0, 0, 0, 0.6);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
 	}
 
-	.logo img {
-		height: 70px;
+	.header-logo img {
+		height: 48px;
 		width: auto;
 		display: block;
 	}
@@ -101,7 +102,7 @@
 		background: #000;
 		position: fixed;
 		inset: 0;
-		z-index: 10;
+		z-index: 2000;
 		padding: 5rem 20px 24px;
 		overflow: auto;
 	}
@@ -153,6 +154,10 @@
 		.menu-toggle {
 			display: none;
 		}
+
+		.header-logo img {
+			height: 60px;
+		}
 	}
 </style>
 
@@ -175,7 +180,7 @@
 	}
 
 	let lastScrollY = window.scrollY;
-	let scrollTimeout;
+	let ticking = false;
 
 	function updateScrolled() {
 		if (!header) return;
@@ -191,24 +196,36 @@
 		() => {
 			updateScrolled();
 
-			clearTimeout(scrollTimeout);
-			scrollTimeout = setTimeout(() => {
-				const currentScrollY = window.scrollY;
+			if (!ticking) {
+				window.requestAnimationFrame(() => {
+					const currentScrollY = window.scrollY;
 
-				if (!header) return;
-				if (mobileMenu?.classList.contains("open")) {
-					lastScrollY = currentScrollY;
-					return;
-				}
+					if (!header) {
+						ticking = false;
+						return;
+					}
 
-				if (currentScrollY > lastScrollY + 10) {
-					header.classList.add("header--hidden");
-				} else if (currentScrollY < lastScrollY - 10) {
-					header.classList.remove("header--hidden");
-				}
+					if (mobileMenu?.classList.contains("open")) {
+						lastScrollY = currentScrollY;
+						ticking = false;
+						return;
+					}
 
-				lastScrollY = currentScrollY;
-			}, 150);
+					if (Math.abs(currentScrollY - lastScrollY) > 20) {
+						if (currentScrollY > lastScrollY && currentScrollY > 100) {
+							header.classList.add("header--hidden");
+						} else {
+							header.classList.remove("header--hidden");
+						}
+
+						lastScrollY = currentScrollY;
+					}
+
+					ticking = false;
+				});
+
+				ticking = true;
+			}
 		},
 		{ passive: true }
 	);
